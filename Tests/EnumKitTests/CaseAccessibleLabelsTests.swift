@@ -24,4 +24,9 @@ class CaseAccessibleLabelsTests: XCTestCase {
         let enumCase = MockEnum.withAnonymousPayload("David Bowie")
         XCTAssertEqual(enumCase.label, "withAnonymousPayload")
     }
+    
+    func testLabelsForCasesWithZeroSizePayloads() {
+        let enumCase = MockEnum.withZeroSizePayload(ZeroSizePayload())
+        XCTAssertEqual(enumCase.label, "withZeroSizePayload")
+    }
 }

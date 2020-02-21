@@ -17,7 +17,8 @@ class CaseAccessibleSequenceTests: XCTestCase {
         MockEnum.withAnonymousPayload("Mercury"),
         MockEnum.withNamedPayload(payload: "Bowie"),
         MockEnum.anInt(20),
-        MockEnum.anInt(30)
+        MockEnum.anInt(30),
+        MockEnum.withZeroSizePayload(ZeroSizePayload())
     ]
 
     func testItCanExtractAssociatedValues() {
@@ -28,6 +29,11 @@ class CaseAccessibleSequenceTests: XCTestCase {
     func testItCanExtractAnonymousAssociatedValues() {
         let result = enumCases.associatedValues(case: MockEnum.withAnonymousPayload)
         XCTAssertEqual(result, ["Freddy", "Mercury"])
+    }
+    
+    func testItCanExtractZeroSizeAssociatedValues() {
+        let result = enumCases.associatedValues(case: MockEnum.withZeroSizePayload)
+        XCTAssertEqual(result, [ZeroSizePayload()])
     }
     
     func testItCanFailExtractAssociatedValues() {
@@ -74,7 +80,8 @@ class CaseAccessibleSequenceTests: XCTestCase {
             MockEnum.withAnonymousPayload("Mercury"),
             MockEnum.withNamedPayload(payload: "Bowie"),
             MockEnum.anInt(20),
-            MockEnum.anInt(30)
+            MockEnum.anInt(30),
+            MockEnum.withZeroSizePayload(ZeroSizePayload())
             ])
     }
     

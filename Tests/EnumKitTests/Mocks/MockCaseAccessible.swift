@@ -16,4 +16,7 @@ enum MockEnum: CaseAccessible, Equatable {
     case anInt(Int)
     case anotherInt(Int)
     case namedInt(integer: Int)
+    case withZeroSizePayload(ZeroSizePayload)
 }
+
+struct ZeroSizePayload: Equatable {}
